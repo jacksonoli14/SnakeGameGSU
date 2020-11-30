@@ -117,7 +117,7 @@ while True:
         f_object.goto(x,y)
 
 
-        #Add a tail video 4
+        #Add a tail
         new_tail = turtle.Turtle()
         new_tail.speed(0)
         new_tail.shape("square")
@@ -137,14 +137,14 @@ while True:
         pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Courier", 28, "normal"))
         
         
-    #Move the end tails first in reverse order  video 4
+    #Move the end tails first in reverse order
     for index in range(len(tails)-1, 0, -1):
         x = tails [index-1].xcor()
         y = tails [index-1].ycor()
         tails[index].goto(x,y)
 
 
-    #Move tail 0 to where the head is  video 4
+    #Move tail 0 to where the head is
     if len(tails) > 0:
         x = head.xcor()
         y = head.ycor()
@@ -164,7 +164,7 @@ while True:
                 tail.goto(1000,1000)
             
             #To clear tails list
-            tails.clear()
+            del tails [:]
 
             #Olivia Jackson - collides with self/tail 
             score = 0
