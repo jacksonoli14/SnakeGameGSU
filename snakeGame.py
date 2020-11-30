@@ -88,7 +88,7 @@ wn.onkeypress(move_right, "d")
 #Sabrin Yasmnin - Main game loop
 while True:
     wn.update()
-    #Video 5
+    #Archita Govindarajan
     #Check for collison with the border
     if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
         time.sleep(1)
@@ -132,6 +132,20 @@ while True:
         tails[0]. goto(x,y)
         
     move()
+    
+    # Archita to check for head collison with the body
+    for segement in segments:
+        if segment.distance(head) < 20:
+            time.sleep(1)
+            head.goto(0,0)
+            head.direction = "stop"
+            #To hide segments
+            for segment in segments:
+                segment.goto(1000,1000)
+            
+            #To clear segments list
+            segments = []
+            
 
 #Olivia Jackson - how score increases
 score += 1
