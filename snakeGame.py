@@ -16,9 +16,9 @@ wn.setup(width=600, height=600)
 wn.tracer(0)  # Turns off the screen updates
 
 head = turtle.Turtle()
-head.speed(0)
-head.shape("square")
 head.color("black")
+head.shape("square")
+head.speed(0)
 head.penup()
 head.goto(0, 0)
 head.direction = "stop"
@@ -31,15 +31,15 @@ f_object.color("yellow")
 f_object.shape("square")
 f_object.speed(0)
 f_object.penup()
-f_object.goto(0.100)
+f_object.goto(0,100)
 
-segments = []
+tails = []
 
 #Olivia Jackson - how score bar looks
 pen = turtle.Turtle()
-pen.speed(0)
-pen.shape("square")
 pen.color("purple")
+pen.shape("square")
+pen.speed(0)
 pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
@@ -80,10 +80,10 @@ def move():
         head.setx(x + 20)
 
 wn.listen()
-wn.onkeypress(move_up, "w")
-wn.onkeypress(move_down, "s")
-wn.onkeypress(move_left, "a")
-wn.onkeypress(move_right, "d")
+wn.onkey(move_up, "w")
+wn.onkey(move_down, "s")
+wn.onkey(move_left, "a")
+wn.onkey(move_right, "d")
 
 #Sabrin Yasmnin - Main game loop
 while True:
@@ -95,12 +95,12 @@ while True:
         head.goto(0,0)
         head.direction = "stop"
         
-        #To hide segments
-        for segment in segments:
-            segment.goto(1000,1000)
+        #To hide tails
+        for tail in tails:
+            tail.goto(1000,1000)
             
-        #To clear segments list
-        segments.clear()
+        #To clear tails list
+        del tails [:]
        
         #Olivia Jackson - collides with sides 
         score = 0
@@ -112,18 +112,18 @@ while True:
 
     if head.distance(f_object) < 18:
         # Move the f_object to 
-        x = random.randint(-300,300)
-        y = random.randint(-300,300)
+        x = random.randint(-290,290)
+        y = random.randint(-290,290)
         f_object.goto(x,y)
 
 
-        #Add a segment video 4
-        new_segment = turtle.Turtle()
-        new_segment.speed(0)
-        new_segment.shape("square")
-        new_segment.color("red")
-        new_segment.penup()
-        segments.append(new_segment)
+        #Add a tail video 4
+        new_tail = turtle.Turtle()
+        new_tail.speed(0)
+        new_tail.shape("square")
+        new_tail.color("red")
+        new_tail.penup()
+        tails.append(new_tail)
 
         #Olivia Jackson - how score increases
         delay -= .001
@@ -138,33 +138,33 @@ while True:
         
         
     #Move the end tails first in reverse order  video 4
-    for index in range(len(segments)-1, 0, -1):
-        x = segments [index-1].xcor()
-        y = segments [index-1].ycor()
-        segments[index].goto(x,y)
+    for index in range(len(tails)-1, 0, -1):
+        x = tails [index-1].xcor()
+        y = tails [index-1].ycor()
+        tails[index].goto(x,y)
 
 
     #Move tail 0 to where the head is  video 4
-    if len(segments) > 0:
+    if len(tails) > 0:
         x = head.xcor()
         y = head.ycor()
-        segments[0]. goto(x,y)
+        tails[0]. goto(x,y)
         
     move()
     
     # Archita to check for head collison with the body
-    for segement in segments:
-        if segment.distance(head) < 20:
+    for tail in tails:
+        if tail.distance(head) < 20:
             time.sleep(1)
             head.goto(0,0)
             head.direction = "stop"
            
-            #To hide segments
-            for segment in segments:
-                segment.goto(1000,1000)
+            #To hide tails
+            for tail in tails:
+                tail.goto(1000,1000)
             
-            #To clear segments list
-            segments.clear()
+            #To clear tails list
+            tails.clear()
 
             #Olivia Jackson - collides with self/tail 
             score = 0
