@@ -46,7 +46,7 @@ f_object.goto(0.100)
 tails = []
 
 #Hussain Alhassan- Directions
-def go_up():
+def move_up():
     if head.direction != "down":
         head.direction = "up"
 
@@ -80,10 +80,10 @@ def move():
         head.setx(x + 20)
 
 wn.listen()
-wn.onkeypress(go_up, "w")
-wn.onkeypress(go_down, "s")
-wn.onkeypress(go_left, "a")
-wn.onkeypress(go_right, "d")
+wn.onkeypress(move_up, "w")
+wn.onkeypress(move_down, "s")
+wn.onkeypress(move_left, "a")
+wn.onkeypress(move_right, "d")
 
 #Sabrin Yasmnin - Main game loop
 while True:
