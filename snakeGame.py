@@ -34,6 +34,7 @@ pen.hideturtle()
 pen.goto(1,260)
 pen.write("Score: 0, High Score: 0", align = "center",font =("Ariel", 28, "bold"))
 
+<<<<<<< HEAD
 #Sabrin Yasmin - create food object
 #Snake food object
 f_object = turtle.Turtle()
@@ -45,23 +46,37 @@ f_object.goto(0.100)
 
 tails = []
 
+=======
+>>>>>>> 24604ed78cfd964c1054b18865a75a2bc91547f5
 #Hussain Alhassan- Directions
 def go_up():
     if head.direction != "down":
         head.direction = "up"
 
 
+<<<<<<< HEAD
 def go_down():
+=======
+def move_down():
+>>>>>>> 24604ed78cfd964c1054b18865a75a2bc91547f5
     if head.direction != "up":
         head.direction = "down"
 
 
+<<<<<<< HEAD
 def go_left():
+=======
+def move_left():
+>>>>>>> 24604ed78cfd964c1054b18865a75a2bc91547f5
     if head.direction != "right":
         head.direction = "left"
 
 
+<<<<<<< HEAD
 def go_right():
+=======
+def move_right():
+>>>>>>> 24604ed78cfd964c1054b18865a75a2bc91547f5
     if head.direction != "left":
         head.direction = "right"
 
@@ -89,6 +104,7 @@ wn.onkeypress(go_down, "s")
 wn.onkeypress(go_left, "a")
 wn.onkeypress(go_right, "d")
 
+<<<<<<< HEAD
 #Sabrin Yasmnin - Main game loop
 while True:
     wn.update()
@@ -123,6 +139,8 @@ while True:
         
     move()
 
+=======
+>>>>>>> 24604ed78cfd964c1054b18865a75a2bc91547f5
 #Olivia Jackson - how score increases
 score += 1
 if score > highScore:
