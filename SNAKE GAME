@@ -40,17 +40,17 @@ def go_up():
         head.direction = "up"
 
 
-def go_down():
+def move_down():
     if head.direction != "up":
         head.direction = "down"
 
 
-def go_left():
+def move_left():
     if head.direction != "right":
         head.direction = "left"
 
 
-def go_right():
+def move_right():
     if head.direction != "left":
         head.direction = "right"
 
