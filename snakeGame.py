@@ -88,6 +88,13 @@ wn.onkeypress(move_right, "d")
 #Sabrin Yasmnin - Main game loop
 while True:
     wn.update()
+    #Video 5
+    #Check for collison with the border
+    if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
+        time.sleep(1)
+        head.goto(0,0)
+        head.direction = "stop"
+        
 
     if head.distance(f_object) < 18
         # Move the f_object to 
