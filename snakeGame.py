@@ -1,4 +1,3 @@
-
 #Hussain Alhassan- Snake Head and Parameters
 import turtle
 import time
@@ -44,7 +43,7 @@ pen.color("purple")
 pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
-pen.write("Score: 0, High Score: 0", align = "center", font=("Ariel", 28, "normal")) 
+pen.write("Score: 0, High Score: 0", align = "center", font=("Courier", 28, "normal")) 
     
 #Hussain Alhassan- Directions
 def move_up():
@@ -105,8 +104,11 @@ while True:
        
         #Olivia Jackson - collides with sides 
         score = 0
+       
+        delay = 0.1
+        
         pen.clear
-        pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
+        pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Courier", 28, "normal"))
 
     if head.distance(f_object) < 18:
         # Move the f_object to 
@@ -121,16 +123,18 @@ while True:
         new_segment.shape("square")
         new_segment.color("red")
         new_segment.penup()
-        segments.append(new_tail)
+        segments.append(new_segment)
 
         #Olivia Jackson - how score increases
+        delay -= .001
+    
         score += 1
         
         if score > highScore:
             highScore = score
             
-        pen.clear
-        pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
+        pen.clear()
+        pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Courier", 28, "normal"))
         
         
     #Move the end tails first in reverse order  video 4
@@ -165,11 +169,13 @@ while True:
             #Olivia Jackson - collides with self/tail 
             score = 0
             
+            delay = .1
+            
             pen.clear
-            pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
+            pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Courier", 28, "normal"))
 
 #Hussain Alhassan- Time Delay
 
-time.sleep(delay)
+    time.sleep(delay)
 
 wn.mainloop()
