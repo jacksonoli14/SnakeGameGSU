@@ -34,7 +34,7 @@ f_object.speed(0)
 f_object.penup()
 f_object.goto(0.100)
 
-tails = []
+segments = []
 
 #Olivia Jackson - how score bar looks
 pen = turtle.Turtle()
@@ -43,8 +43,8 @@ pen.shape("square")
 pen.color("purple")
 pen.penup()
 pen.hideturtle()
-pen.goto(1,260)
-pen.write("Score: 0, High Score: 0", align = "center",font =("Ariel", 28, "normal")) 
+pen.goto(0,260)
+pen.write("Score: 0, High Score: 0", align = "center", font=("Ariel", 28, "normal")) 
     
 #Hussain Alhassan- Directions
 def move_up():
@@ -101,14 +101,14 @@ while True:
             segment.goto(1000,1000)
             
         #To clear segments list
-        segments = []
+        segments.clear()
        
         #Olivia Jackson - collides with sides 
         score = 0
         pen.clear
         pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
 
-    if head.distance(f_object) < 18
+    if head.distance(f_object) < 18:
         # Move the f_object to 
         x = random.randint(-300,300)
         y = random.randint(-300,300)
@@ -116,33 +116,35 @@ while True:
 
 
         #Add a segment video 4
-        new_tail = turtle.Turtle()
-        new_tail.speed(0)
-        new_tail.shape("square")
-        new_tail.color("red")
-        new_tail.penup()
-        tails.append(new_tail)
+        new_segment = turtle.Turtle()
+        new_segment.speed(0)
+        new_segment.shape("square")
+        new_segment.color("red")
+        new_segment.penup()
+        segments.append(new_tail)
 
         #Olivia Jackson - how score increases
         score += 1
+        
         if score > highScore:
-        highScore = score
+            highScore = score
+            
         pen.clear
         pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
         
         
     #Move the end tails first in reverse order  video 4
-    for index in range(len(tails)-1, 0, -1):
-        x = tails {index-1}.xcor()
-        y = tails {index-1}.ycor()
-        tails{index}.goto(x,y)
+    for index in range(len(segments)-1, 0, -1):
+        x = segments [index-1].xcor()
+        y = segments [index-1].ycor()
+        segments[index].goto(x,y)
 
 
     #Move tail 0 to where the head is  video 4
-    if lef(tails) > 0:
+    if len(segments) > 0:
         x = head.xcor()
         y = head.ycor()
-        tails[0]. goto(x,y)
+        segments[0]. goto(x,y)
         
     move()
     
@@ -152,15 +154,17 @@ while True:
             time.sleep(1)
             head.goto(0,0)
             head.direction = "stop"
+           
             #To hide segments
             for segment in segments:
                 segment.goto(1000,1000)
             
             #To clear segments list
-            segments = []
+            segments.clear()
 
             #Olivia Jackson - collides with self/tail 
             score = 0
+            
             pen.clear
             pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
 
