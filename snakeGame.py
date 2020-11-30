@@ -95,6 +95,13 @@ while True:
         head.goto(0,0)
         head.direction = "stop"
         
+        #To hide segments
+        for segment in segments:
+            segment.goto(1000,1000)
+            
+        #To clear segments list
+        segments = []
+        
 
     if head.distance(f_object) < 18
         # Move the f_object to 
