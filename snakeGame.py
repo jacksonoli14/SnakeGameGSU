@@ -8,7 +8,7 @@ delay = 0.1
 
 
 score = 0
-high_score = 0
+highScore = 0
 
 wn = turtle.Screen()
 wn.title("Snake Game")
@@ -24,15 +24,6 @@ head.penup()
 head.goto(0, 0)
 head.direction = "stop"
 
-#Olivia Jackson - how score bar looks - line 37ish
-pen = turtle.Turtle()
-pen.speed(0)
-pen.shape("square")
-pen.color("purple")
-pen.penup()
-pen.hideturtle()
-pen.goto(1,260)
-pen.write("Score: 0, High Score: 0", align = "center",font =("Ariel", 28, "bold"))
 
 #Sabrin Yasmin - create food object
 #Snake food object
@@ -45,6 +36,16 @@ f_object.goto(0.100)
 
 tails = []
 
+#Olivia Jackson - how score bar looks
+pen = turtle.Turtle()
+pen.speed(0)
+pen.shape("square")
+pen.color("purple")
+pen.penup()
+pen.hideturtle()
+pen.goto(1,260)
+pen.write("Score: 0, High Score: 0", align = "center",font =("Ariel", 28, "normal")) 
+    
 #Hussain Alhassan- Directions
 def move_up():
     if head.direction != "down":
@@ -101,7 +102,11 @@ while True:
             
         #To clear segments list
         segments = []
-        
+       
+        #Olivia Jackson - collides with sides 
+        score = 0
+        pen.clear
+        pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
 
     if head.distance(f_object) < 18
         # Move the f_object to 
@@ -118,6 +123,14 @@ while True:
         new_tail.penup()
         tails.append(new_tail)
 
+        #Olivia Jackson - how score increases
+        score += 1
+        if score > highScore:
+        highScore = score
+        pen.clear
+        pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
+        
+        
     #Move the end tails first in reverse order  video 4
     for index in range(len(tails)-1, 0, -1):
         x = tails {index-1}.xcor()
@@ -145,26 +158,11 @@ while True:
             
             #To clear segments list
             segments = []
-            
 
-#Olivia Jackson - how score increases
-score += 1
-if score > highScore:
-  highScore = score
-pen.clear
-pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "bold"))
-
-
-#Olivia Jackson - collides with sides t
-score = 0
-pen.clear
-pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "bold"))
-
-
-#Olivia Jackson - collides with self/tail 
-score = 0
-pen.clear
-pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "bold"))
+            #Olivia Jackson - collides with self/tail 
+            score = 0
+            pen.clear
+            pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "normal"))
 
 #Hussain Alhassan- Time Delay
 
