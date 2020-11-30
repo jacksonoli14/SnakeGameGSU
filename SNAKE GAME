@@ -3,3 +3,33 @@ hi
 heya
 hii
 Hi
+
+#Olivia Jackson - how score bar looks - line 37ish
+pen = turtle.Turtle()
+pen.speed(0)
+pen.shape("square")
+pen.color("purple")
+pen.penup()
+pen.hideturtle()
+pen.goto(1,260)
+pen.write("Score: 0, High Score: 0", align = "center",font =("Ariel", 28, "bold"))
+
+
+#Olivia Jackson - how score increases
+score += 1
+if score > highScore:
+  highScore = score
+pen.clear
+pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "bold"))
+
+
+#Olivia Jackson - collides with sides t
+score = 0
+pen.clear
+pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "bold"))
+
+
+#Olivia Jackson - collides with self/tail 
+score = 0
+pen.clear
+pen.write("Score: {}  High Score: {}".format(score,highScore), align = "center",font =("Ariel", 28, "bold"))
